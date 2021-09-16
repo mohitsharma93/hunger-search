@@ -15,6 +15,17 @@ import { AuthenticationContextProvider } from './src/services/authentication/aut
 import firebase from 'firebase'
 import { Navigation } from './src/infrastructure/navigation'
 
+const firebaseConfig = {
+  apiKey: 'AIzaSyAMYxIdTiuwbi_kfnZlws1G6AgeJ15Q5Us',
+  authDomain: 'native-firebase-638cf.firebaseapp.com',
+  databaseURL: 'https://native-firebase-638cf.firebaseio.com',
+  projectId: 'native-firebase-638cf',
+  storageBucket: 'native-firebase-638cf.appspot.com',
+  messagingSenderId: '133358278699',
+  appId: '1:133358278699:web:b414486b93a2b3e779326e',
+  measurementId: 'G-KLEBFCESK7',
+}
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
 }
