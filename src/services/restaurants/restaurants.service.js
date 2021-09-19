@@ -1,7 +1,7 @@
 import { mocks, mockImages } from './mock';
 import camelize from 'camelize';
 
-import { host } from '../../utils/env';
+import { host, isMock } from '../../utils/env';
 
 export const restaurantTransform = ({ results = [] }) => {
   const newResult = results.map((restaurant, i) => {
@@ -17,8 +17,8 @@ export const restaurantTransform = ({ results = [] }) => {
 
 
 export const restaurantsRequest = (location) => {
-
-  return fetch(`${host}placeNearby?location=${location}`).then(res => {
+  console.log('location in restaurant request', location)
+  return fetch(`${host}placeNearby?location=${location}&mock=${isMock}`).then(res => {
     return res.json(res);
   })
 }
