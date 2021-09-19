@@ -29,6 +29,7 @@ export const AuthenticationContextProvider = ({ children }) => {
       setError(null);
       console.log('authenticationContextProvider', u)
     }).catch(err => {
+      console.log(err.toString());
       setIsLoading(false);
       setError(err.toString());
     })

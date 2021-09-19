@@ -13,7 +13,7 @@ const Map = styled(MapView)`
   width: 100%;
 `;
 
-export const MapScreen = ({ navigation }) => {
+export const RenderMap = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
 
@@ -62,5 +62,21 @@ export const MapScreen = ({ navigation }) => {
         }
       </Map>
     </>
+  );
+};
+
+
+export const MapScreen = ({ navigation}) => {
+  const { location } = useContext(LocationContext);
+  if (location) return <RenderMap navigation={navigation}/>
+  return (
+    <Map
+      region={{
+        latitude: 0,
+        longitude: 0,
+        latitudeDelta: 0,
+        longitudeDelta: 0.02,
+      }}
+    ></Map>
   )
 }
