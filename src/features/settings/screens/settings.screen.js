@@ -9,6 +9,7 @@ import { Spacer } from '../../../components/spacer/spacer.component';
 import { SafeArea } from '../../../components/utility/safe-area.component';
 import { AuthenticationContext } from '../../../services/authentication/authentication.context';
 import { useFocusEffect } from "@react-navigation/native";
+import { colors } from "../../../infrastructure/theme/colors";
 
 const SettingItem = styled(List.Item)`
   padding: ${(props) => props.theme.space[3]}
@@ -29,7 +30,6 @@ export const SettingsScreen = ({ navigation }) => {
       photoUri.then(res => {
         setPhoto(res)
       }).catch(err => {
-        console.log('err from settings Screen', err);
         setPhotoGetError(err)
       })
     }
@@ -45,7 +45,7 @@ export const SettingsScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
           { 
             !photo ?
-              <Avatar.Icon size={180} backgroundColor='#2182BD' icon='human'/>
+              <Avatar.Icon size={180} backgroundColor={colors.brand.primary} icon='human'/>
               : <Avatar.Image size={180} backgroundColor='#2182BD' source={{ uri: photo }}/>
           }
           

@@ -13,7 +13,7 @@ module.exports.placesRequest = (request, response) => {
     if (data) {
       data.request = data.results.map(addMockImage);
     }
-    response.send(data);
+    return response.send(data);
   }
   
   client.placesNearby({
@@ -29,7 +29,7 @@ module.exports.placesRequest = (request, response) => {
     // detail to get photos, so we put mock photos.
     // res.data.results = res.data.results.map(addMockImage)
     res.data.results = res.data.results.map(addGoogleImage)
-    return response.json(res.data);
+    return response.json('res.data', res.data);
   }).catch(err => {
     response.status(400);
     return response.json(err.response.data.error_message);

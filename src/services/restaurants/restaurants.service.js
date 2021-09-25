@@ -17,7 +17,6 @@ export const restaurantTransform = ({ results = [] }) => {
 
 
 export const restaurantsRequest = (location) => {
-  console.log('location in restaurant request', location)
   return fetch(`${host}placeNearby?location=${location}&mock=${isMock}`).then(res => {
     return res.json(res);
   })
