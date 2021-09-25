@@ -10,4 +10,5 @@ export const isDevelopment = process.env.NODE_ENV === 'development'
 export const host = !isDevelopment || isAndroid ?  liveHost : localHost;
 export const isMock = true;
 
+// it is a public key from stripe site.
 export const stripeClientKey = ''
