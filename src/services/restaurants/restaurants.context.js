@@ -25,7 +25,7 @@ export const RestaurantContextProvider = ({ children }) => {
       console.log('error restaurant context', error)
     });
   }
-  useEffect(() => {console.log('location',location);
+  useEffect(() => {
     if (location) {
       const locationString = `${location.lat},${location.lng}`
       retrievRestaurants(locationString)

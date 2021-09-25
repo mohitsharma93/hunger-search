@@ -21,13 +21,11 @@ export const AuthenticationContextProvider = ({ children }) => {
   })
 
   const onLogin = (email, password) => {
-    console.log(email, password);
     setIsLoading(true);
     loginRequest(email, password).then(u => {
       setUser(u);
       setIsLoading(false);
       setError(null);
-      console.log('authenticationContextProvider', u)
     }).catch(err => {
       console.log(err.toString());
       setIsLoading(false);

@@ -32,7 +32,6 @@ export const  FavouritesContextProvider = ({ children }) => {
   const loadFavourites = async () => {
     try{
       const getFavourites = await AsyncStorage.getItem(`@favourites-${uid}`);
-      // console.log(JSON.parse(getFavourites))
       if (getFavourites !== null) {
         setFavourites(JSON.parse(getFavourites));
       }
@@ -44,7 +43,6 @@ export const  FavouritesContextProvider = ({ children }) => {
   useEffect(() => {
     if (user) {
       loadFavourites();
-      console.log('favourites', favourites)
     }
   }, [user])
 
